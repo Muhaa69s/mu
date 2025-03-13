@@ -1,17 +1,13 @@
 <script setup>
-import { RouterView, RouterLink } from 'vue-router';
+import { RouterView } from 'vue-router';
 </script>
 
 <template>
-  <header>
-    <nav>
-      <RouterLink to="/">Accueil</RouterLink>
-      <RouterLink to="/discovermore">Découvrir plus</RouterLink>
-    </nav>
-  </header>
-
   <main>
+    <Entete />
+    <Menu />
     <RouterView />
+    <Enbas />
   </main>
 </template>
 
@@ -34,4 +30,3 @@ nav a:hover {
   color: #646cff;
 }
 </style>
-
