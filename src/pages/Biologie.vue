@@ -7,7 +7,17 @@ import boutonRetour from '../components/boutonRetour.vue';
 <template>
   <div>
     <boutonRetour textBouton="Revenir à l'accueil" />
-    <PresentationBioCell />
+
+    <PresentationBioCell>
+      <template #intro>
+        <p>✨ Petite introduction personnalisée avec un message spécial !</p>
+      </template>
+
+      <template #extra>
+        <p>📌 Info bonus : Saviez-vous que certaines cellules peuvent vivre toute une vie ?</p>
+      </template>
+    </PresentationBioCell>
+
     <BioArtPre />
   </div>
 </template>

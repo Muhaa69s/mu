@@ -2,6 +2,10 @@
   <section class="section-presentation color5">
     <header class="section-header">
       <h2 class="section-title text-black">Section de Biologie Cellulaire</h2>
+
+      <!-- 🎯 SLOT nommé "intro" pour afficher du contenu personnalisé -->
+      <slot name="intro"></slot>
+
       <p class="section-intro text-black">
         Explorez les fondamentaux de la biologie cellulaire, une science qui étudie les composants de base de la vie.
         Découvrez les structures et fonctions essentielles des cellules.
@@ -17,6 +21,11 @@
           <li>Le corps humain contient environ 37 000 milliards de cellules.</li>
           <li>Les mitochondries sont les centrales énergétiques des cellules.</li>
         </ul>
+      </div>
+
+      <!-- 🆕 Slot pour contenu supplémentaire après les faits clés -->
+      <div class="slot-extra">
+        <slot name="extra"></slot>
       </div>
 
       <div class="interactive-container">
@@ -113,20 +122,20 @@ export default {
 .color6 {
   background: #B0BEC5 !important;
 }
-
 .color5 {
   background: linear-gradient(45deg, #ECEFF1, #CFD8DC, #B0BEC5, #90A4AE) !important;
   background-size: 400% 400% !important;
-  animation: movingBackground 10s infinite alternate !important;
+  animation: movingBackground 12s infinite alternate !important;
   color: #37474F !important;
-  padding: 20px !important;
-  border-radius: 8px !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  padding: 30px !important;
+  border-radius: 12px !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .color5:hover {
-  transform: scale(1.02) !important;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15) !important;
+  transform: scale(1.01) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
 }
 
 .text-black {
@@ -134,14 +143,66 @@ export default {
   font-weight: bold !important;
 }
 
+.section-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.section-title {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.section-intro {
+  font-size: 1.1em;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+::v-deep [slot="intro"] {
+  font-size: 1.1em;
+  color: #37474F;
+  font-style: italic;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* ✅ Style pour le slot "extra" */
+.slot-extra {
+  margin-top: 15px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 1em;
+  color: #263238;
+  font-style: italic;
+}
+
+/* Cartes */
+.overview-card {
+  background-color: #ffffff !important;
+  padding: 20px !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+.interactive-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
 .system {
   background: rgba(0, 0, 0, 0.05) !important;
   color: #37474F !important;
   padding: 15px !important;
-  border-radius: 8px !important;
+  border-radius: 10px !important;
   text-align: center !important;
-  transition: 0.3s ease-in-out !important;
+  transition: all 0.3s ease-in-out !important;
   cursor: pointer !important;
+  width: 240px;
 }
 
 .system:hover {
@@ -149,12 +210,33 @@ export default {
   transform: scale(1.05) !important;
 }
 
+.image-container {
+  background-color: #ffffff !important;
+  padding: 25px !important;
+  margin-top: 25px;
+  border-radius: 12px !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12) !important;
+  text-align: center;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 15px 0;
+}
+
+.button-container {
+  margin-top: 10px;
+}
+
 button {
   background: #90A4AE !important;
-  color: #37474F !important;
-  padding: 10px 15px !important;
+  color: #ffffff !important;
   border: none !important;
-  border-radius: 5px !important;
+  padding: 10px 18px !important;
+  border-radius: 6px !important;
+  font-weight: bold !important;
   cursor: pointer !important;
   transition: 0.3s !important;
 }
